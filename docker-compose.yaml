@@ -1,0 +1,17 @@
+version: '3'
+services:
+  nginx-web:
+    image: nginx:latest
+    ports:
+      - "8090:80"
+    volumes:
+      - ~/projects/nginx-docker:/usr/share/nginx/html
+      - ./nginx.conf:/etc/nginx/nginx.conf
+  nodeapp:
+    command: "npm run app"
+    restart: on-failure
+    image: nodeapp
+    build:
+      context: ./nodeapp/
+      dockerfile: Dockerfile
+    container_name: nodeapp
