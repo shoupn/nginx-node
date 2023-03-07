@@ -7,27 +7,44 @@ services:
     volumes:
       - ~/projects/nginx-docker:/usr/share/nginx/html
       - ./nginx.conf:/etc/nginx/nginx.conf
+
   nodeapp:
     command: "npm run app"
-    restart: on-failure
     image: nodeapp
     build:
       context: ./nodeapp/
       dockerfile: Dockerfile
     container_name: nodeapp
+
   nodeapp2:
     command: "npm run app"
-    restart: on-failure
     image: nodeapp
     build:
       context: ./nodeapp/
       dockerfile: Dockerfile
     container_name: nodeapp2
+
   nodeapp3:
     command: "npm run app"
-    restart: on-failure
     image: nodeapp
     build:
       context: ./nodeapp/
       dockerfile: Dockerfile
     container_name: nodeapp3
+
+  nodeapp-sticky:
+    command: "npm run app"
+    image: nodeapp
+    build:
+      context: ./nodeapp/
+      dockerfile: Dockerfile
+    container_name: nodeapp-sticky
+
+  nodeapp-sticky1:
+    command: "npm run app"
+    image: nodeapp
+    build:
+      context: ./nodeapp/
+      dockerfile: Dockerfile
+    container_name: nodeapp-sticky1
+
