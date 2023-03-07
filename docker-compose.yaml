@@ -15,3 +15,11 @@ services:
       context: ./nodeapp/
       dockerfile: Dockerfile
     container_name: nodeapp
+  nodeapp2:
+    command: "npm run app"
+    restart: on-failure
+    image: nodeapp
+    build:
+      context: ./nodeapp/
+      dockerfile: Dockerfile
+    container_name: nodeapp2
