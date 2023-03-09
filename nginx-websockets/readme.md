@@ -1,0 +1,2 @@
+something to consider when configuration of tls on layer 7 the certs will need to be installed on nginx and configured. 
+the decryption/encryption will occur on the nginx proxy rather than if done on the backend service/server.  
