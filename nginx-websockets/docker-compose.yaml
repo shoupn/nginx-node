@@ -1,0 +1,25 @@
+version: '3'
+services:
+  nginx-web:
+    image: nginx:latest
+    ports:
+      - "8095:8080"
+    volumes:
+      - ./:/usr/share/nginx/html/
+      - ./nginx.conf:/etc/nginx/nginx.conf
+
+  nodeapp:
+    command: "npm run app"
+    image: web-sockets-server
+    build:
+      context: ./web-sockets-server/
+      dockerfile: Dockerfile
+    container_name: web-sockets-server1
+
+  nodeapp2:
+    command: "npm run app"
+    image: web-sockets-server1
+    build:
+      context: ./web-sockets-server/
+      dockerfile: Dockerfile
+    container_name: web-sockets-server2

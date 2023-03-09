@@ -5,7 +5,7 @@ services:
     ports:
       - "8090:80"
     volumes:
-      - ~/projects/nginx-docker:/usr/share/nginx/html
+      - ./nginx-docker:/usr/share/nginx/html
       - ./nginx.conf:/etc/nginx/nginx.conf
 
   nodeapp:
